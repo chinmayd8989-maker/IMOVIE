@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#080A0F] text-slate-100 font-sans;
+    overflow-x: hidden;
+  }
+
+  /* Custom scrollbar for modern cinema feel */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0B0E14;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1E2638;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2D3A54;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 20px rgba(229, 9, 20, 0.4);
+  }
+  .card-glow:hover {
+    box-shadow: 0 10px 30px -10px rgba(229, 9, 20, 0.25);
+  }
+  .screen-curve {
+    border-top: 4px solid #E50914;
+    border-radius: 50% 50% 0 0 / 20px 20px 0 0;
+    box-shadow: 0 -10px 25px -5px rgba(229, 9, 20, 0.35);
+  }
+}
+
+/* Print styling for clean physical/PDF ticket generation */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-ticket, #printable-ticket * {
+    visibility: visible;
+  }
+  #printable-ticket {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    background: white !important;
+    color: black !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
